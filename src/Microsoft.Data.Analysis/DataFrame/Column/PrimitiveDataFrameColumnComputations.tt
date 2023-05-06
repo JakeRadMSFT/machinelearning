@@ -5,7 +5,7 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ output extension=".cs" #>
-<#@ include file="ColumnArithmeticTemplate.ttinclude" #>
+<#@ include file=".\ColumnArithmeticTemplate.ttinclude" #>
 
 // Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
@@ -19,7 +19,7 @@ using System.Collections.Generic;
 namespace Microsoft.Data.Analysis
 {
     internal interface IPrimitiveColumnComputation<T>
-        where T : struct
+        where T : unmanaged
     {
 <# foreach (MethodConfiguration compMethod in computationMethodConfiguration) { #>
 <# if (compMethod.MethodType == MethodType.ElementwiseComputation && compMethod.HasReturnValue == false && compMethod.SupportsRowSubsets == true) {#>
@@ -39,7 +39,7 @@ namespace Microsoft.Data.Analysis
     }
 
     internal static class PrimitiveColumnComputation<T>
-        where T : struct
+        where T : unmanaged
     {
         public static IPrimitiveColumnComputation<T> Instance { get; } = PrimitiveColumnComputation.GetComputation<T>();
     }
@@ -47,7 +47,7 @@ namespace Microsoft.Data.Analysis
     internal static class PrimitiveColumnComputation
     {
         public static IPrimitiveColumnComputation<T> GetComputation<T>()
-            where T : struct
+            where T : unmanaged
         {
 <# foreach (TypeConfiguration type in typeConfiguration) { #>
             <#=GenerateIfStatementHeader(type)#>

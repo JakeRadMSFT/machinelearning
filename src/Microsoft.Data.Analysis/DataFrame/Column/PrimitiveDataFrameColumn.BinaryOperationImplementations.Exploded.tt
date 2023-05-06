@@ -5,8 +5,8 @@
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.Diagnostics" #>
 <#@ output extension=".cs" #>
-<#@ include file="ColumnArithmeticTemplate.ttinclude"#>
-<#@ include file="PrimitiveDataFrameColumn.BinaryOperations.Combinations.ttinclude" #>
+<#@ include file=".\ColumnArithmeticTemplate.ttinclude"#>
+<#@ include file=".\PrimitiveDataFrameColumn.BinaryOperations.Combinations.ttinclude" #>
 // Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
