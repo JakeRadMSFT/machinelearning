@@ -15,7 +15,6 @@ using System.Runtime.Versioning;
 
 namespace Microsoft.Data.Analysis
 {
-    [RequiresPreviewFeatures]
     internal class NumberMathComputation<T> : IPrimitiveColumnComputation<T>
         where T : unmanaged, INumber<T>
     {

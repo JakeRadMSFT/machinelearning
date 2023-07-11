@@ -13,7 +13,6 @@ using System.Runtime.Versioning;
 
 namespace Microsoft.Data.Analysis
 {
-    [RequiresPreviewFeatures]
     internal class FloatingPointMathComputation<T> : NumberMathComputation<T>
         where T : unmanaged, INumber<T>, IFloatingPoint<T>
     {

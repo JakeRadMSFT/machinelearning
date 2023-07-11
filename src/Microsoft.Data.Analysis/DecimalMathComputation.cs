@@ -12,7 +12,6 @@ using System.Runtime.Versioning;
 
 namespace Microsoft.Data.Analysis
 {
-    [RequiresPreviewFeatures]
     internal class DecimalMathComputation : NumberMathComputation<decimal>
     {
         public override void Round(PrimitiveColumnContainer<decimal> column)
