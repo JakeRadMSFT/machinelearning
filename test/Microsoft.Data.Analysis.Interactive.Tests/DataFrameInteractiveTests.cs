@@ -10,6 +10,8 @@ using Microsoft.DotNet.Interactive.Formatting;
 using Microsoft.DotNet.Interactive.Formatting.TabularData;
 using Xunit;
 
+using Int32DataFrameColumn = Microsoft.Data.Analysis.PrimitiveDataFrameColumn<System.Int32>;
+
 namespace Microsoft.Data.Analysis.Interactive.Tests
 {
     public class DataFrameInteractiveTests

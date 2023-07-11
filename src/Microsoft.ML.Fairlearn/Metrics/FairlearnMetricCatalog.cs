@@ -9,6 +9,11 @@ using Microsoft.Data.Analysis;
 using Microsoft.ML.Data;
 using Microsoft.ML.Runtime;
 
+using BooleanDataFrameColumn = Microsoft.Data.Analysis.PrimitiveDataFrameColumn<bool>;
+using SingleDataFrameColumn = Microsoft.Data.Analysis.PrimitiveDataFrameColumn<float>;
+using DoubleDataFrameColumn = Microsoft.Data.Analysis.PrimitiveDataFrameColumn<double>;
+using Int32DataFrameColumn = Microsoft.Data.Analysis.PrimitiveDataFrameColumn<System.Int32>;
+
 namespace Microsoft.ML.Fairlearn
 {
     public class FairlearnMetricCatalog

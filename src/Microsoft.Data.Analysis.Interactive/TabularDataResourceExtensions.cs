@@ -6,6 +6,9 @@ using System;
 using System.Linq;
 using Microsoft.Data.Analysis;
 
+using BooleanDataFrameColumn = Microsoft.Data.Analysis.PrimitiveDataFrameColumn<bool>;
+using DoubleDataFrameColumn = Microsoft.Data.Analysis.PrimitiveDataFrameColumn<double>;
+using Int64DataFrameColumn = Microsoft.Data.Analysis.PrimitiveDataFrameColumn<System.Int64>;
 
 namespace Microsoft.DotNet.Interactive.Formatting.TabularData
 {
