@@ -9,6 +9,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
+using System.Numerics;
 
 namespace Microsoft.Data.Analysis
 {

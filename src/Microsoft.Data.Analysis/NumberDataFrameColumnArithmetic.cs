@@ -5,13 +5,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Microsoft.Data.Analysis
 {
     internal class NumberDataFrameColumnArithmetic<T> : FloatingPointDataFrameColumnArithmetic<T>, IPrimitiveDataFrameColumnArithmetic<T>
-        where T : unmanaged, INumber<T>, IShiftOperators<T, T>, IBitwiseOperators<T, T, T>
+        where T : unmanaged, INumber<T>, IShiftOperators<T, int, T>, IBitwiseOperators<T, T, T>
     {
         public NumberDataFrameColumnArithmetic() : base()
         {
