@@ -16,6 +16,7 @@ namespace Microsoft.Data.Analysis
         public FloatingPointDataFrameColumnArithmetic() : base()
         {
         }
+
         public void Add(PrimitiveColumnContainer<T> left, PrimitiveColumnContainer<T> right)
         {
             for (int b = 0; b < left.Buffers.Count; b++)
@@ -31,6 +32,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public void Add(PrimitiveColumnContainer<T> column, T scalar)
         {
             for (int b = 0; b < column.Buffers.Count; b++)
@@ -45,6 +47,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public void Add(T scalar, PrimitiveColumnContainer<T> column)
         {
             for (int b = 0; b < column.Buffers.Count; b++)
@@ -59,6 +62,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public void Subtract(PrimitiveColumnContainer<T> left, PrimitiveColumnContainer<T> right)
         {
             for (int b = 0; b < left.Buffers.Count; b++)
@@ -74,6 +78,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public void Subtract(PrimitiveColumnContainer<T> column, T scalar)
         {
             for (int b = 0; b < column.Buffers.Count; b++)
@@ -88,6 +93,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public void Subtract(T scalar, PrimitiveColumnContainer<T> column)
         {
             for (int b = 0; b < column.Buffers.Count; b++)
@@ -102,6 +108,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public void Multiply(PrimitiveColumnContainer<T> left, PrimitiveColumnContainer<T> right)
         {
             for (int b = 0; b < left.Buffers.Count; b++)
@@ -117,6 +124,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public void Multiply(PrimitiveColumnContainer<T> column, T scalar)
         {
             for (int b = 0; b < column.Buffers.Count; b++)
@@ -131,6 +139,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public void Multiply(T scalar, PrimitiveColumnContainer<T> column)
         {
             for (int b = 0; b < column.Buffers.Count; b++)
@@ -145,6 +154,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public void Divide(PrimitiveColumnContainer<T> left, PrimitiveColumnContainer<T> right)
         {
             for (int b = 0; b < left.Buffers.Count; b++)
@@ -160,6 +170,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public void Divide(PrimitiveColumnContainer<T> column, T scalar)
         {
             for (int b = 0; b < column.Buffers.Count; b++)
@@ -174,6 +185,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public void Divide(T scalar, PrimitiveColumnContainer<T> column)
         {
             for (int b = 0; b < column.Buffers.Count; b++)
@@ -188,6 +200,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public void Modulo(PrimitiveColumnContainer<T> left, PrimitiveColumnContainer<T> right)
         {
             for (int b = 0; b < left.Buffers.Count; b++)
@@ -203,6 +216,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public void Modulo(PrimitiveColumnContainer<T> column, T scalar)
         {
             for (int b = 0; b < column.Buffers.Count; b++)
@@ -217,6 +231,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public void Modulo(T scalar, PrimitiveColumnContainer<T> column)
         {
             for (int b = 0; b < column.Buffers.Count; b++)
@@ -231,52 +246,65 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public virtual void And(PrimitiveColumnContainer<T> left, PrimitiveColumnContainer<T> right)
         {
             throw new NotSupportedException();
         }
+
         public virtual void And(PrimitiveColumnContainer<T> column, T scalar)
         {
             throw new NotSupportedException();
         }
+
         public virtual void And(T scalar, PrimitiveColumnContainer<T> column)
         {
             throw new NotSupportedException();
         }
+
         public virtual void Or(PrimitiveColumnContainer<T> left, PrimitiveColumnContainer<T> right)
         {
             throw new NotSupportedException();
         }
+
         public virtual void Or(PrimitiveColumnContainer<T> column, T scalar)
         {
             throw new NotSupportedException();
         }
+
         public virtual void Or(T scalar, PrimitiveColumnContainer<T> column)
         {
             throw new NotSupportedException();
         }
+
         public virtual void Xor(PrimitiveColumnContainer<T> left, PrimitiveColumnContainer<T> right)
         {
             throw new NotSupportedException();
         }
+
         public virtual void Xor(PrimitiveColumnContainer<T> column, T scalar)
         {
             throw new NotSupportedException();
         }
+
         public virtual void Xor(T scalar, PrimitiveColumnContainer<T> column)
         {
             throw new NotSupportedException();
         }
+
         public virtual void LeftShift(PrimitiveColumnContainer<T> column, int value)
         {
             throw new NotSupportedException();
         }
+
         public virtual void RightShift(PrimitiveColumnContainer<T> column, int value)
         {
             throw new NotSupportedException();
         }
-        public void ElementwiseEquals(PrimitiveColumnContainer<T> left, PrimitiveColumnContainer<T> right, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseEquals(PrimitiveColumnContainer<T> left, PrimitiveColumnContainer<T> right)
         {
+            PrimitiveColumnContainer<bool> ret = new PrimitiveColumnContainer<bool>(left.Length);
             for (int b = 0; b < left.Buffers.Count; b++)
             {
                 var buffer = left.Buffers[b];
@@ -289,9 +317,12 @@ namespace Microsoft.Data.Analysis
                     ret[i] = (span[i] == otherSpan[i]);
                 }
             }
+            return ret;
         }
-        public void ElementwiseEquals(PrimitiveColumnContainer<T> column, T scalar, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseEquals(PrimitiveColumnContainer<T> column, T scalar)
         {
+            PrimitiveColumnContainer<bool> ret = new PrimitiveColumnContainer<bool>(column.Length);
             for (int b = 0; b < column.Buffers.Count; b++)
             {
                 var buffer = column.Buffers[b];
@@ -303,9 +334,12 @@ namespace Microsoft.Data.Analysis
                     ret[i] = (span[i] == scalar);
                 }
             }
+            return ret;
         }
-        public void ElementwiseNotEquals(PrimitiveColumnContainer<T> left, PrimitiveColumnContainer<T> right, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseNotEquals(PrimitiveColumnContainer<T> left, PrimitiveColumnContainer<T> right)
         {
+            PrimitiveColumnContainer<bool> ret = new PrimitiveColumnContainer<bool>(left.Length);
             for (int b = 0; b < left.Buffers.Count; b++)
             {
                 var buffer = left.Buffers[b];
@@ -318,9 +352,12 @@ namespace Microsoft.Data.Analysis
                     ret[i] = (span[i] != otherSpan[i]);
                 }
             }
+            return ret;
         }
-        public void ElementwiseNotEquals(PrimitiveColumnContainer<T> column, T scalar, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseNotEquals(PrimitiveColumnContainer<T> column, T scalar)
         {
+            PrimitiveColumnContainer<bool> ret = new PrimitiveColumnContainer<bool>(column.Length);
             for (int b = 0; b < column.Buffers.Count; b++)
             {
                 var buffer = column.Buffers[b];
@@ -332,9 +369,12 @@ namespace Microsoft.Data.Analysis
                     ret[i] = (span[i] != scalar);
                 }
             }
+            return ret;
         }
-        public void ElementwiseGreaterThanOrEqual(PrimitiveColumnContainer<T> left, PrimitiveColumnContainer<T> right, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseGreaterThanOrEqual(PrimitiveColumnContainer<T> left, PrimitiveColumnContainer<T> right)
         {
+            PrimitiveColumnContainer<bool> ret = new PrimitiveColumnContainer<bool>(left.Length);
             for (int b = 0; b < left.Buffers.Count; b++)
             {
                 var buffer = left.Buffers[b];
@@ -347,9 +387,12 @@ namespace Microsoft.Data.Analysis
                     ret[i] = (span[i] >= otherSpan[i]);
                 }
             }
+            return ret;
         }
-        public void ElementwiseGreaterThanOrEqual(PrimitiveColumnContainer<T> column, T scalar, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseGreaterThanOrEqual(PrimitiveColumnContainer<T> column, T scalar)
         {
+            PrimitiveColumnContainer<bool> ret = new PrimitiveColumnContainer<bool>(column.Length);
             for (int b = 0; b < column.Buffers.Count; b++)
             {
                 var buffer = column.Buffers[b];
@@ -361,9 +404,12 @@ namespace Microsoft.Data.Analysis
                     ret[i] = (span[i] >= scalar);
                 }
             }
+            return ret;
         }
-        public void ElementwiseLessThanOrEqual(PrimitiveColumnContainer<T> left, PrimitiveColumnContainer<T> right, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseLessThanOrEqual(PrimitiveColumnContainer<T> left, PrimitiveColumnContainer<T> right)
         {
+            PrimitiveColumnContainer<bool> ret = new PrimitiveColumnContainer<bool>(left.Length);
             for (int b = 0; b < left.Buffers.Count; b++)
             {
                 var buffer = left.Buffers[b];
@@ -376,9 +422,12 @@ namespace Microsoft.Data.Analysis
                     ret[i] = (span[i] <= otherSpan[i]);
                 }
             }
+            return ret;
         }
-        public void ElementwiseLessThanOrEqual(PrimitiveColumnContainer<T> column, T scalar, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseLessThanOrEqual(PrimitiveColumnContainer<T> column, T scalar)
         {
+            PrimitiveColumnContainer<bool> ret = new PrimitiveColumnContainer<bool>(column.Length);
             for (int b = 0; b < column.Buffers.Count; b++)
             {
                 var buffer = column.Buffers[b];
@@ -390,9 +439,12 @@ namespace Microsoft.Data.Analysis
                     ret[i] = (span[i] <= scalar);
                 }
             }
+            return ret;
         }
-        public void ElementwiseGreaterThan(PrimitiveColumnContainer<T> left, PrimitiveColumnContainer<T> right, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseGreaterThan(PrimitiveColumnContainer<T> left, PrimitiveColumnContainer<T> right)
         {
+            PrimitiveColumnContainer<bool> ret = new PrimitiveColumnContainer<bool>(left.Length);
             for (int b = 0; b < left.Buffers.Count; b++)
             {
                 var buffer = left.Buffers[b];
@@ -405,9 +457,12 @@ namespace Microsoft.Data.Analysis
                     ret[i] = (span[i] > otherSpan[i]);
                 }
             }
+            return ret;
         }
-        public void ElementwiseGreaterThan(PrimitiveColumnContainer<T> column, T scalar, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseGreaterThan(PrimitiveColumnContainer<T> column, T scalar)
         {
+            PrimitiveColumnContainer<bool> ret = new PrimitiveColumnContainer<bool>(column.Length);
             for (int b = 0; b < column.Buffers.Count; b++)
             {
                 var buffer = column.Buffers[b];
@@ -419,9 +474,12 @@ namespace Microsoft.Data.Analysis
                     ret[i] = (span[i] > scalar);
                 }
             }
+            return ret;
         }
-        public void ElementwiseLessThan(PrimitiveColumnContainer<T> left, PrimitiveColumnContainer<T> right, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseLessThan(PrimitiveColumnContainer<T> left, PrimitiveColumnContainer<T> right)
         {
+            PrimitiveColumnContainer<bool> ret = new PrimitiveColumnContainer<bool>(left.Length);
             for (int b = 0; b < left.Buffers.Count; b++)
             {
                 var buffer = left.Buffers[b];
@@ -434,9 +492,12 @@ namespace Microsoft.Data.Analysis
                     ret[i] = (span[i] < otherSpan[i]);
                 }
             }
+            return ret;
         }
-        public void ElementwiseLessThan(PrimitiveColumnContainer<T> column, T scalar, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseLessThan(PrimitiveColumnContainer<T> column, T scalar)
         {
+            PrimitiveColumnContainer<bool> ret = new PrimitiveColumnContainer<bool>(column.Length);
             for (int b = 0; b < column.Buffers.Count; b++)
             {
                 var buffer = column.Buffers[b];
@@ -448,6 +509,7 @@ namespace Microsoft.Data.Analysis
                     ret[i] = (span[i] < scalar);
                 }
             }
+            return ret;
         }
     }
 }

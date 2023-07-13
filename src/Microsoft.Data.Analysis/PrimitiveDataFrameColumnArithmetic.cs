@@ -81,69 +81,84 @@ namespace Microsoft.Data.Analysis
             throw new NotSupportedException();
         }
     }
-
     internal class BoolArithmetic : IPrimitiveDataFrameColumnArithmetic<bool>
     {
+
         public void Add(PrimitiveColumnContainer<bool> left, PrimitiveColumnContainer<bool> right)
         {
             throw new NotSupportedException();
         }
+
         public void Add(PrimitiveColumnContainer<bool> column, bool scalar)
         {
             throw new NotSupportedException();
         }
+
         public void Add(bool scalar, PrimitiveColumnContainer<bool> column)
         {
             throw new NotSupportedException();
         }
+
         public void Subtract(PrimitiveColumnContainer<bool> left, PrimitiveColumnContainer<bool> right)
         {
             throw new NotSupportedException();
         }
+
         public void Subtract(PrimitiveColumnContainer<bool> column, bool scalar)
         {
             throw new NotSupportedException();
         }
+
         public void Subtract(bool scalar, PrimitiveColumnContainer<bool> column)
         {
             throw new NotSupportedException();
         }
+
         public void Multiply(PrimitiveColumnContainer<bool> left, PrimitiveColumnContainer<bool> right)
         {
             throw new NotSupportedException();
         }
+
         public void Multiply(PrimitiveColumnContainer<bool> column, bool scalar)
         {
             throw new NotSupportedException();
         }
+
         public void Multiply(bool scalar, PrimitiveColumnContainer<bool> column)
         {
             throw new NotSupportedException();
         }
+
         public void Divide(PrimitiveColumnContainer<bool> left, PrimitiveColumnContainer<bool> right)
         {
             throw new NotSupportedException();
         }
+
         public void Divide(PrimitiveColumnContainer<bool> column, bool scalar)
         {
             throw new NotSupportedException();
         }
+
         public void Divide(bool scalar, PrimitiveColumnContainer<bool> column)
         {
             throw new NotSupportedException();
         }
+
         public void Modulo(PrimitiveColumnContainer<bool> left, PrimitiveColumnContainer<bool> right)
         {
             throw new NotSupportedException();
         }
+
         public void Modulo(PrimitiveColumnContainer<bool> column, bool scalar)
         {
             throw new NotSupportedException();
         }
+
         public void Modulo(bool scalar, PrimitiveColumnContainer<bool> column)
         {
             throw new NotSupportedException();
         }
+
         public void And(PrimitiveColumnContainer<bool> left, PrimitiveColumnContainer<bool> right)
         {
             for (int b = 0; b < left.Buffers.Count; b++)
@@ -157,6 +172,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public void And(PrimitiveColumnContainer<bool> column, bool scalar)
         {
             for (int b = 0; b < column.Buffers.Count; b++)
@@ -169,6 +185,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public void And(bool scalar, PrimitiveColumnContainer<bool> column)
         {
             for (int b = 0; b < column.Buffers.Count; b++)
@@ -181,6 +198,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public void Or(PrimitiveColumnContainer<bool> left, PrimitiveColumnContainer<bool> right)
         {
             for (int b = 0; b < left.Buffers.Count; b++)
@@ -194,6 +212,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public void Or(PrimitiveColumnContainer<bool> column, bool scalar)
         {
             for (int b = 0; b < column.Buffers.Count; b++)
@@ -206,6 +225,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public void Or(bool scalar, PrimitiveColumnContainer<bool> column)
         {
             for (int b = 0; b < column.Buffers.Count; b++)
@@ -218,6 +238,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public void Xor(PrimitiveColumnContainer<bool> left, PrimitiveColumnContainer<bool> right)
         {
             for (int b = 0; b < left.Buffers.Count; b++)
@@ -231,6 +252,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public void Xor(PrimitiveColumnContainer<bool> column, bool scalar)
         {
             for (int b = 0; b < column.Buffers.Count; b++)
@@ -243,6 +265,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public void Xor(bool scalar, PrimitiveColumnContainer<bool> column)
         {
             for (int b = 0; b < column.Buffers.Count; b++)
@@ -255,16 +278,20 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public void LeftShift(PrimitiveColumnContainer<bool> column, int value)
         {
             throw new NotSupportedException();
         }
+
         public void RightShift(PrimitiveColumnContainer<bool> column, int value)
         {
             throw new NotSupportedException();
         }
-        public void ElementwiseEquals(PrimitiveColumnContainer<bool> left, PrimitiveColumnContainer<bool> right, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseEquals(PrimitiveColumnContainer<bool> left, PrimitiveColumnContainer<bool> right)
         {
+            PrimitiveColumnContainer<bool> ret = new PrimitiveColumnContainer<bool>(left.Length);
             long index = 0;
             for (int b = 0; b < left.Buffers.Count; b++)
             {
@@ -275,9 +302,12 @@ namespace Microsoft.Data.Analysis
                     ret[index++] = (span[i] == otherSpan[i]);
                 }
             }
+            return ret;
         }
-        public void ElementwiseEquals(PrimitiveColumnContainer<bool> column, bool scalar, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseEquals(PrimitiveColumnContainer<bool> column, bool scalar)
         {
+            PrimitiveColumnContainer<bool> ret = new PrimitiveColumnContainer<bool>(column.Length);
             long index = 0;
             for (int b = 0; b < column.Buffers.Count; b++)
             {
@@ -287,9 +317,12 @@ namespace Microsoft.Data.Analysis
                     ret[index++] = (span[i] == scalar);
                 }
             }
+            return ret;
         }
-        public void ElementwiseNotEquals(PrimitiveColumnContainer<bool> left, PrimitiveColumnContainer<bool> right, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseNotEquals(PrimitiveColumnContainer<bool> left, PrimitiveColumnContainer<bool> right)
         {
+            PrimitiveColumnContainer<bool> ret = new PrimitiveColumnContainer<bool>(left.Length);
             long index = 0;
             for (int b = 0; b < left.Buffers.Count; b++)
             {
@@ -300,9 +333,12 @@ namespace Microsoft.Data.Analysis
                     ret[index++] = (span[i] != otherSpan[i]);
                 }
             }
+            return ret;
         }
-        public void ElementwiseNotEquals(PrimitiveColumnContainer<bool> column, bool scalar, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseNotEquals(PrimitiveColumnContainer<bool> column, bool scalar)
         {
+            PrimitiveColumnContainer<bool> ret = new PrimitiveColumnContainer<bool>(column.Length);
             long index = 0;
             for (int b = 0; b < column.Buffers.Count; b++)
             {
@@ -312,36 +348,45 @@ namespace Microsoft.Data.Analysis
                     ret[index++] = (span[i] != scalar);
                 }
             }
+            return ret;
         }
-        public void ElementwiseGreaterThanOrEqual(PrimitiveColumnContainer<bool> left, PrimitiveColumnContainer<bool> right, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseGreaterThanOrEqual(PrimitiveColumnContainer<bool> left, PrimitiveColumnContainer<bool> right)
         {
             throw new NotSupportedException();
         }
-        public void ElementwiseGreaterThanOrEqual(PrimitiveColumnContainer<bool> column, bool scalar, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseGreaterThanOrEqual(PrimitiveColumnContainer<bool> column, bool scalar)
         {
             throw new NotSupportedException();
         }
-        public void ElementwiseLessThanOrEqual(PrimitiveColumnContainer<bool> left, PrimitiveColumnContainer<bool> right, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseLessThanOrEqual(PrimitiveColumnContainer<bool> left, PrimitiveColumnContainer<bool> right)
         {
             throw new NotSupportedException();
         }
-        public void ElementwiseLessThanOrEqual(PrimitiveColumnContainer<bool> column, bool scalar, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseLessThanOrEqual(PrimitiveColumnContainer<bool> column, bool scalar)
         {
             throw new NotSupportedException();
         }
-        public void ElementwiseGreaterThan(PrimitiveColumnContainer<bool> left, PrimitiveColumnContainer<bool> right, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseGreaterThan(PrimitiveColumnContainer<bool> left, PrimitiveColumnContainer<bool> right)
         {
             throw new NotSupportedException();
         }
-        public void ElementwiseGreaterThan(PrimitiveColumnContainer<bool> column, bool scalar, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseGreaterThan(PrimitiveColumnContainer<bool> column, bool scalar)
         {
             throw new NotSupportedException();
         }
-        public void ElementwiseLessThan(PrimitiveColumnContainer<bool> left, PrimitiveColumnContainer<bool> right, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseLessThan(PrimitiveColumnContainer<bool> left, PrimitiveColumnContainer<bool> right)
         {
             throw new NotSupportedException();
         }
-        public void ElementwiseLessThan(PrimitiveColumnContainer<bool> column, bool scalar, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseLessThan(PrimitiveColumnContainer<bool> column, bool scalar)
         {
             throw new NotSupportedException();
         }
@@ -349,112 +394,140 @@ namespace Microsoft.Data.Analysis
 
     internal class DateTimeArithmetic : IPrimitiveDataFrameColumnArithmetic<DateTime>
     {
+
         public void Add(PrimitiveColumnContainer<DateTime> left, PrimitiveColumnContainer<DateTime> right)
         {
             throw new NotSupportedException();
         }
+
         public void Add(PrimitiveColumnContainer<DateTime> column, DateTime scalar)
         {
             throw new NotSupportedException();
         }
+
         public void Add(DateTime scalar, PrimitiveColumnContainer<DateTime> column)
         {
             throw new NotSupportedException();
         }
+
         public void Subtract(PrimitiveColumnContainer<DateTime> left, PrimitiveColumnContainer<DateTime> right)
         {
             throw new NotSupportedException();
         }
+
         public void Subtract(PrimitiveColumnContainer<DateTime> column, DateTime scalar)
         {
             throw new NotSupportedException();
         }
+
         public void Subtract(DateTime scalar, PrimitiveColumnContainer<DateTime> column)
         {
             throw new NotSupportedException();
         }
+
         public void Multiply(PrimitiveColumnContainer<DateTime> left, PrimitiveColumnContainer<DateTime> right)
         {
             throw new NotSupportedException();
         }
+
         public void Multiply(PrimitiveColumnContainer<DateTime> column, DateTime scalar)
         {
             throw new NotSupportedException();
         }
+
         public void Multiply(DateTime scalar, PrimitiveColumnContainer<DateTime> column)
         {
             throw new NotSupportedException();
         }
+
         public void Divide(PrimitiveColumnContainer<DateTime> left, PrimitiveColumnContainer<DateTime> right)
         {
             throw new NotSupportedException();
         }
+
         public void Divide(PrimitiveColumnContainer<DateTime> column, DateTime scalar)
         {
             throw new NotSupportedException();
         }
+
         public void Divide(DateTime scalar, PrimitiveColumnContainer<DateTime> column)
         {
             throw new NotSupportedException();
         }
+
         public void Modulo(PrimitiveColumnContainer<DateTime> left, PrimitiveColumnContainer<DateTime> right)
         {
             throw new NotSupportedException();
         }
+
         public void Modulo(PrimitiveColumnContainer<DateTime> column, DateTime scalar)
         {
             throw new NotSupportedException();
         }
+
         public void Modulo(DateTime scalar, PrimitiveColumnContainer<DateTime> column)
         {
             throw new NotSupportedException();
         }
+
         public void And(PrimitiveColumnContainer<DateTime> left, PrimitiveColumnContainer<DateTime> right)
         {
             throw new NotSupportedException();
         }
+
         public void And(PrimitiveColumnContainer<DateTime> column, DateTime scalar)
         {
             throw new NotSupportedException();
         }
+
         public void And(DateTime scalar, PrimitiveColumnContainer<DateTime> column)
         {
             throw new NotSupportedException();
         }
+
         public void Or(PrimitiveColumnContainer<DateTime> left, PrimitiveColumnContainer<DateTime> right)
         {
             throw new NotSupportedException();
         }
+
         public void Or(PrimitiveColumnContainer<DateTime> column, DateTime scalar)
         {
             throw new NotSupportedException();
         }
+
         public void Or(DateTime scalar, PrimitiveColumnContainer<DateTime> column)
         {
             throw new NotSupportedException();
         }
+
         public void Xor(PrimitiveColumnContainer<DateTime> left, PrimitiveColumnContainer<DateTime> right)
         {
             throw new NotSupportedException();
         }
+
         public void Xor(PrimitiveColumnContainer<DateTime> column, DateTime scalar)
         {
             throw new NotSupportedException();
         }
+
         public void Xor(DateTime scalar, PrimitiveColumnContainer<DateTime> column)
         {
             throw new NotSupportedException();
         }
+
         public void LeftShift(PrimitiveColumnContainer<DateTime> column, int value)
         {
             throw new NotSupportedException();
         }
+
         public void RightShift(PrimitiveColumnContainer<DateTime> column, int value)
         {
             throw new NotSupportedException();
         }
-        public void ElementwiseEquals(PrimitiveColumnContainer<DateTime> left, PrimitiveColumnContainer<DateTime> right, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseEquals(PrimitiveColumnContainer<DateTime> left, PrimitiveColumnContainer<DateTime> right)
         {
+            PrimitiveColumnContainer<bool> ret = new PrimitiveColumnContainer<bool>(left.Length);
             long index = 0;
             for (int b = 0; b < left.Buffers.Count; b++)
             {
@@ -465,9 +538,12 @@ namespace Microsoft.Data.Analysis
                     ret[index++] = (span[i] == otherSpan[i]);
                 }
             }
+            return ret;
         }
-        public void ElementwiseEquals(PrimitiveColumnContainer<DateTime> column, DateTime scalar, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseEquals(PrimitiveColumnContainer<DateTime> column, DateTime scalar)
         {
+            PrimitiveColumnContainer<bool> ret = new PrimitiveColumnContainer<bool>(column.Length);
             long index = 0;
             for (int b = 0; b < column.Buffers.Count; b++)
             {
@@ -477,9 +553,12 @@ namespace Microsoft.Data.Analysis
                     ret[index++] = (span[i] == scalar);
                 }
             }
+            return ret;
         }
-        public void ElementwiseNotEquals(PrimitiveColumnContainer<DateTime> left, PrimitiveColumnContainer<DateTime> right, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseNotEquals(PrimitiveColumnContainer<DateTime> left, PrimitiveColumnContainer<DateTime> right)
         {
+            PrimitiveColumnContainer<bool> ret = new PrimitiveColumnContainer<bool>(left.Length);
             long index = 0;
             for (int b = 0; b < left.Buffers.Count; b++)
             {
@@ -490,9 +569,12 @@ namespace Microsoft.Data.Analysis
                     ret[index++] = (span[i] != otherSpan[i]);
                 }
             }
+            return ret;
         }
-        public void ElementwiseNotEquals(PrimitiveColumnContainer<DateTime> column, DateTime scalar, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseNotEquals(PrimitiveColumnContainer<DateTime> column, DateTime scalar)
         {
+            PrimitiveColumnContainer<bool> ret = new PrimitiveColumnContainer<bool>(column.Length);
             long index = 0;
             for (int b = 0; b < column.Buffers.Count; b++)
             {
@@ -502,36 +584,45 @@ namespace Microsoft.Data.Analysis
                     ret[index++] = (span[i] != scalar);
                 }
             }
+            return ret;
         }
-        public void ElementwiseGreaterThanOrEqual(PrimitiveColumnContainer<DateTime> left, PrimitiveColumnContainer<DateTime> right, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseGreaterThanOrEqual(PrimitiveColumnContainer<DateTime> left, PrimitiveColumnContainer<DateTime> right)
         {
             throw new NotSupportedException();
         }
-        public void ElementwiseGreaterThanOrEqual(PrimitiveColumnContainer<DateTime> column, DateTime scalar, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseGreaterThanOrEqual(PrimitiveColumnContainer<DateTime> column, DateTime scalar)
         {
             throw new NotSupportedException();
         }
-        public void ElementwiseLessThanOrEqual(PrimitiveColumnContainer<DateTime> left, PrimitiveColumnContainer<DateTime> right, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseLessThanOrEqual(PrimitiveColumnContainer<DateTime> left, PrimitiveColumnContainer<DateTime> right)
         {
             throw new NotSupportedException();
         }
-        public void ElementwiseLessThanOrEqual(PrimitiveColumnContainer<DateTime> column, DateTime scalar, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseLessThanOrEqual(PrimitiveColumnContainer<DateTime> column, DateTime scalar)
         {
             throw new NotSupportedException();
         }
-        public void ElementwiseGreaterThan(PrimitiveColumnContainer<DateTime> left, PrimitiveColumnContainer<DateTime> right, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseGreaterThan(PrimitiveColumnContainer<DateTime> left, PrimitiveColumnContainer<DateTime> right)
         {
             throw new NotSupportedException();
         }
-        public void ElementwiseGreaterThan(PrimitiveColumnContainer<DateTime> column, DateTime scalar, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseGreaterThan(PrimitiveColumnContainer<DateTime> column, DateTime scalar)
         {
             throw new NotSupportedException();
         }
-        public void ElementwiseLessThan(PrimitiveColumnContainer<DateTime> left, PrimitiveColumnContainer<DateTime> right, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseLessThan(PrimitiveColumnContainer<DateTime> left, PrimitiveColumnContainer<DateTime> right)
         {
             throw new NotSupportedException();
         }
-        public void ElementwiseLessThan(PrimitiveColumnContainer<DateTime> column, DateTime scalar, PrimitiveColumnContainer<bool> ret)
+
+        public PrimitiveColumnContainer<bool> ElementwiseLessThan(PrimitiveColumnContainer<DateTime> column, DateTime scalar)
         {
             throw new NotSupportedException();
         }

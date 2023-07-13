@@ -89,6 +89,7 @@ namespace Microsoft.Data.Analysis
 
             column.AddOwner(this);
 
+
             _columnNameToIndexDictionary[column.Name] = columnIndex;
             for (int i = columnIndex + 1; i < Count; i++)
             {
@@ -110,6 +111,7 @@ namespace Microsoft.Data.Analysis
             {
                 throw new ArgumentException(string.Format(Strings.DuplicateColumnName, column.Name), nameof(column));
             }
+
             _columnNameToIndexDictionary.Remove(this[columnIndex].Name);
             _columnNameToIndexDictionary[column.Name] = columnIndex;
 
@@ -491,6 +493,5 @@ namespace Microsoft.Data.Analysis
 
             throw new ArgumentException(string.Format(Strings.BadColumnCast, column.DataType, typeof(UInt16)));
         }
-
     }
 }

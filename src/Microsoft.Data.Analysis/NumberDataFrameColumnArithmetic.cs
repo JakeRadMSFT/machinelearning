@@ -16,6 +16,7 @@ namespace Microsoft.Data.Analysis
         public NumberDataFrameColumnArithmetic() : base()
         {
         }
+
         public override void And(PrimitiveColumnContainer<T> left, PrimitiveColumnContainer<T> right)
         {
             for (int b = 0; b < left.Buffers.Count; b++)
@@ -31,6 +32,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public override void And(PrimitiveColumnContainer<T> column, T scalar)
         {
             for (int b = 0; b < column.Buffers.Count; b++)
@@ -45,6 +47,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public override void And(T scalar, PrimitiveColumnContainer<T> column)
         {
             for (int b = 0; b < column.Buffers.Count; b++)
@@ -59,6 +62,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public override void Or(PrimitiveColumnContainer<T> left, PrimitiveColumnContainer<T> right)
         {
             for (int b = 0; b < left.Buffers.Count; b++)
@@ -74,6 +78,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public override void Or(PrimitiveColumnContainer<T> column, T scalar)
         {
             for (int b = 0; b < column.Buffers.Count; b++)
@@ -88,6 +93,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public override void Or(T scalar, PrimitiveColumnContainer<T> column)
         {
             for (int b = 0; b < column.Buffers.Count; b++)
@@ -102,6 +108,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public override void Xor(PrimitiveColumnContainer<T> left, PrimitiveColumnContainer<T> right)
         {
             for (int b = 0; b < left.Buffers.Count; b++)
@@ -117,6 +124,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public override void Xor(PrimitiveColumnContainer<T> column, T scalar)
         {
             for (int b = 0; b < column.Buffers.Count; b++)
@@ -131,6 +139,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public override void Xor(T scalar, PrimitiveColumnContainer<T> column)
         {
             for (int b = 0; b < column.Buffers.Count; b++)
@@ -145,6 +154,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public override void LeftShift(PrimitiveColumnContainer<T> column, int value)
         {
             for (int b = 0; b < column.Buffers.Count; b++)
@@ -159,6 +169,7 @@ namespace Microsoft.Data.Analysis
                 }
             }
         }
+
         public override void RightShift(PrimitiveColumnContainer<T> column, int value)
         {
             for (int b = 0; b < column.Buffers.Count; b++)
