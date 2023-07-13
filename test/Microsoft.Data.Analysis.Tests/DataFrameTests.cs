@@ -1225,6 +1225,20 @@ namespace Microsoft.Data.Analysis.Tests
             Assert.Equal(new DateTime(2023, 1, 1), dateTimeColumn.Max());
         }
 
+            var dateTimeColumn = new DateTimeDataFrameColumn("DateTime", new DateTime?[]
+                {
+                    null,
+                    new DateTime(2022, 1, 1),
+                    new DateTime(2020, 1, 1),
+                    new DateTime(2023, 1, 1),
+                    new DateTime(2021, 1, 1),
+                    null
+                });
+
+            Assert.Equal(new DateTime(2020, 1, 1), dateTimeColumn.Min());
+            Assert.Equal(new DateTime(2023, 1, 1), dateTimeColumn.Max());
+        }
+
         [Theory]
         [InlineData(5, 10)]
         [InlineData(-15, 10)]

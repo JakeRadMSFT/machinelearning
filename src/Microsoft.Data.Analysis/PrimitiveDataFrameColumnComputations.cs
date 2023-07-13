@@ -240,6 +240,246 @@ namespace Microsoft.Data.Analysis
         }
 
         public PrimitiveColumnContainer<U> CreateTruncating<U>(PrimitiveColumnContainer<bool> column) where U : unmanaged, INumber<U>
+            bool hasValue = false;
+                        value = (byte)(Math.Max(readOnlySpan[i], value));
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+            bool hasValue = false;
+                        value = (byte)(Math.Min(readOnlySpan[i], value));
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+
+            ret = value;
+            var hasValue = false;
+                        value = (byte)(readOnlySpan[i] + value);
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+            bool hasValue = false;
+                        value = (char)(Math.Max(readOnlySpan[i], value));
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+            bool hasValue = false;
+                        value = (char)(Math.Min(readOnlySpan[i], value));
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+
+            ret = value;
+            var hasValue = false;
+                        value = (char)(readOnlySpan[i] + value);
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+            bool hasValue = false;
+                        value = (decimal)(Math.Max(readOnlySpan[i], value));
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+            bool hasValue = false;
+                        value = (decimal)(Math.Min(readOnlySpan[i], value));
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+
+            ret = value;
+            var hasValue = false;
+                        value = (decimal)(readOnlySpan[i] + value);
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+            bool hasValue = false;
+                        value = (double)(Math.Max(readOnlySpan[i], value));
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+            bool hasValue = false;
+                        value = (double)(Math.Min(readOnlySpan[i], value));
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+
+            ret = value;
+            var hasValue = false;
+                        value = (double)(readOnlySpan[i] + value);
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+            bool hasValue = false;
+                        value = (float)(Math.Max(readOnlySpan[i], value));
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+            bool hasValue = false;
+                        value = (float)(Math.Min(readOnlySpan[i], value));
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+
+            ret = value;
+            var hasValue = false;
+                        value = (float)(readOnlySpan[i] + value);
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+            bool hasValue = false;
+                        value = (int)(Math.Max(readOnlySpan[i], value));
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+            bool hasValue = false;
+                        value = (int)(Math.Min(readOnlySpan[i], value));
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+
+            ret = value;
+            var hasValue = false;
+                        value = (int)(readOnlySpan[i] + value);
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+            bool hasValue = false;
+                        value = (long)(Math.Max(readOnlySpan[i], value));
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+            bool hasValue = false;
+                        value = (long)(Math.Min(readOnlySpan[i], value));
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+
+            ret = value;
+            var hasValue = false;
+                        value = (long)(readOnlySpan[i] + value);
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+            bool hasValue = false;
+                        value = (sbyte)(Math.Max(readOnlySpan[i], value));
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+            bool hasValue = false;
+                        value = (sbyte)(Math.Min(readOnlySpan[i], value));
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+
+            ret = value;
+            var hasValue = false;
+                        value = (sbyte)(readOnlySpan[i] + value);
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+            bool hasValue = false;
+                        value = (short)(Math.Max(readOnlySpan[i], value));
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+            bool hasValue = false;
+                        value = (short)(Math.Min(readOnlySpan[i], value));
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+
+            ret = value;
+            var hasValue = false;
+                        value = (short)(readOnlySpan[i] + value);
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+            bool hasValue = false;
+                        value = (uint)(Math.Max(readOnlySpan[i], value));
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+            bool hasValue = false;
+                        value = (uint)(Math.Min(readOnlySpan[i], value));
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+
+            ret = value;
+            var hasValue = false;
+                        value = (uint)(readOnlySpan[i] + value);
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+            bool hasValue = false;
+                        value = (ulong)(Math.Max(readOnlySpan[i], value));
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+            bool hasValue = false;
+                        value = (ulong)(Math.Min(readOnlySpan[i], value));
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+
+            ret = value;
+            var hasValue = false;
+                        value = (ulong)(readOnlySpan[i] + value);
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+            bool hasValue = false;
+                        value = (ushort)(Math.Max(readOnlySpan[i], value));
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+            bool hasValue = false;
+                        value = (ushort)(Math.Min(readOnlySpan[i], value));
+
+            ret = hasValue ? value : null;
+
+            ret = value;
+
+            ret = value;
+            var hasValue = false;
+                        value = (ushort)(readOnlySpan[i] + value);
+
+            ret = hasValue ? value : null;
+
+            ret = value;
         {
             throw new NotImplementedException();
         }
