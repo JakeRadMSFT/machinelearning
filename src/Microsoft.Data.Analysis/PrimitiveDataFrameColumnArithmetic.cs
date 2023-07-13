@@ -347,49 +347,6 @@ namespace Microsoft.Data.Analysis
         }
     }
 
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
-            long index = 0;
     internal class DateTimeArithmetic : IPrimitiveDataFrameColumnArithmetic<DateTime>
     {
         public void Add(PrimitiveColumnContainer<DateTime> left, PrimitiveColumnContainer<DateTime> right)

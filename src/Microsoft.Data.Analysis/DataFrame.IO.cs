@@ -332,7 +332,7 @@ namespace Microsoft.Data.Analysis
             }
             else if (kind == typeof(DateTime))
             {
-                ret = new DateTimeDataFrameColumn(columnName);
+                ret = new PrimitiveDataFrameColumn<DateTime>(columnName);
             }
             else
             {
