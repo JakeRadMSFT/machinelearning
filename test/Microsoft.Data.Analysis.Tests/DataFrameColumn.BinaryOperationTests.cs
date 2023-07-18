@@ -680,8 +680,8 @@ namespace Microsoft.Data.Analysis.Tests
             PrimitiveDataFrameColumn<byte> column = new PrimitiveDataFrameColumn<byte>("Byte", columnEnumerable);
             ulong value = 5;
             DataFrameColumn columnResult = column - value;
-            var verify = Enumerable.Range(1, 10).Select(x => (ulong)((ulong)x - (ulong)value));
-            var verifyColumn = new PrimitiveDataFrameColumn<ulong>("Verify", verify);
+            var verify = Enumerable.Range(1, 10).Select(x => ((decimal)x - (decimal)value));
+            var verifyColumn = new PrimitiveDataFrameColumn<decimal>("Verify", verify);
             Assert.Equal(columnResult.Length, verify.Count());
             Assert.True(columnResult.ElementwiseEquals(verifyColumn).All());
         }
